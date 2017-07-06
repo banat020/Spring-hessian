@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context.xsd 
+			http://code.alibabatech.com/schema/dubbo
+			http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+			">
+	<!-- 自动扫描除Controller以外的注解 -->	
+	<context:component-scan base-package="com.banling.springhessian.server.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<!-- 注入属性 -->
+	<bean id="propertyPlaceHolderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+			    <value>classpath:config/server/server.config.properties</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="false" />
+	</bean>
+
+</beans>	
