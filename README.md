@@ -1,4 +1,4 @@
-# Spring-hessian
+# 分布式服务框架二：Spring-hessian
 基于Hessian技术，整合Spring、Hibernate、MyBatis实现分布式服务技术架构。<br>
 为什么要同时整合Hibernate与MyBatis呢？因为，对数据的增删改，Hibernate提供简单的实现，不过，对于复杂的查询，尤其是动态查询，Hibernate的实现就显得比较麻烦了，于是，再集合MyBatis3，用于处理数据查询，并且用MyBatis查询还有性能更优的好处。<br>
 还有另一点，技术框架只对Hibernate的操作应用事务，MyBatis的操作不启用事务。<br>
@@ -19,5 +19,5 @@
 1）在spring-hessian-ds模块的根目录下找到ds.sql，在MYSQL上执行。<br>
 2）修改spring-hessian-server/src/config/ds目录中有关数据源的配置。<br>
 3）Maven对所有模块打包。<br>
-4）将spring-hessian-server部署在一个Tomcat中。<br>
-5）将spring-hessian-web部署在另一个Tomcat中（当然也可以部署在与spring-hessian-server同一个tomcat）。访问首页，上面有几个访问Hessian服务的链接。<br>
+4）将spring-hessian-server部署在一个Tomcat中。生产环境中可以通过Nginx+tomcat的方式实现集群与负载均衡。另外说明一下，Hessian是基于Http协议实现的，而Dubbo是基于TCP协议实现的。<br>
+5）将spring-hessian-web部署在另一个Tomcat中（当然也可以部署在与spring-hessian-server同一个tomcat）。访问首页，上面有几个访问Hessian服务的链接。可以直接扩展这个模块实现自己项目的业务功能。<br>
