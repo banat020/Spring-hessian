@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spring Invoker Client</title>
+<title>Spring Hession Client</title>
 </head>
 <body>
 Client, Nothing ...
